@@ -70,12 +70,13 @@ City of Glen Eira,Metro,575.00,5,1102.85,124742,71755193.09
 City of Bayside,Metro,150.00,2,1127.13,82673,12380460.23
 City of Moonee Valley,Metro,820.00,7,1059.76,104152,85434267.05
 Shire of Buloke,Country,9.00,0,946.06,5012,0.00
-Shire of Golden Plains,Country,9.00,0,996.95,19535,0.00
-Shire of Hindmarsh,Country,9.00,0,922.83,4565,0.00
-Shire of Indigo,Country,9.00,0,996.29,14058,0.00
-Shire of Loddon,Country,9.00,0,924.81,6372,0.00
-Shire of Moyne,Country,9.00,0,998.42,13797,0.00
-Shire of Pyrenees,Country,9.00,0,929.26,6395,0.00
-Shire of West Wimmera,Country,9.00,0,971.17,3165,0.00
-Shire of Yarriambiack,Country,9.00,0,923.02,5184,0.00
+Shire of Golden Plains,Country,0,0,996.95,19535,0.00
+Shire of Hindmarsh,Country,0,0,922.83,4565,0.00
+Shire of Indigo,Country,0,0,996.29,14058,0.00
+Shire of Loddon,Country,0,0,924.81,6372,0.00
+Shire of Moyne,Country,0,0,998.42,13797,0.00
+Shire of Pyrenees,Country,0,0,929.26,6395,0.00
+Shire of West Wimmera,Country,0,0,971.17,3165,0.00
+Shire of Yarriambiack,Country,0,0,923.02,5184,0.00
+
 
