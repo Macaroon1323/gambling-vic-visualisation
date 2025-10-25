@@ -29,7 +29,7 @@
     {
       "transform": [
         {
-          "calculate": "upper(datum['properties.vic_lga__3'])",
+          "calculate": "datum['properties.vic_lga__3']",
           "as": "LGA_KEY"
         },
         {
