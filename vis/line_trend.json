@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Statewide EGM Expenditure Over Time (2011–2021)",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "Data/line_trend.csv"
+  },
+  "mark": {
+    "type": "line",
+    "interpolate": "monotone",
+    "strokeWidth": 3,
+    "color": "#2171b5"
+  },
+  "encoding": {
+    "x": {
+      "field": "YEAR",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "TOTAL_EXPENDITURE_AUD",
+      "type": "quantitative",
+      "title": "Total Expenditure ($ billions)",
+      "axis": {"format": "s"},
+      "scale": {"zero": false}
+    },
+    "tooltip": [
+      {"field": "YEAR", "type": "ordinal", "title": "Year"},
+      {"field": "TOTAL_EXPENDITURE_AUD", "type": "quantitative", "title": "Expenditure ($)", "format": ",.0f"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "color": "#08306b",
+        "size": 60
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+  }
+}
