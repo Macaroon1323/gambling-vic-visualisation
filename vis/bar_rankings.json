@@ -4,7 +4,7 @@
   "width": 600,
   "height": 400,
   "data": {
-    "url": "https://raw.githubusercontent.com/<Macaroon1323>/<gambling-vic-visualisation>/main/Data/bar_rankings.csv"
+    "url": "Data/bar_rankings.csv"
   },
   "mark": {
     "type": "bar",
