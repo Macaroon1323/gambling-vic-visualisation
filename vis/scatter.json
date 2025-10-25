@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "EGM Density vs Expenditure per Adult by Victorian LGA (2015–2024)",
+  "data": {
+    "url": "Data/scatter.csv"
+  },
+  "params": [
+    {
+      "name": "YearSelect",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2015,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.YEAR == YearSelect"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "x": {
+      "field": "EGM_DENSITY",
+      "type": "quantitative",
+      "title": "EGMs per 1,000 Adults",
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "EXPENDITURE_PER_ADULT",
+      "type": "quantitative",
+      "title": "Expenditure per Adult ($)",
+      "scale": {"zero": false}
+    },
+    "color": {
+      "field": "SEIFA_SCORE",
+      "type": "quantitative",
+      "title": "SEIFA (Disadvantage Index)",
+      "scale": {"scheme": "blues"}
+    },
+    "size": {
+      "field": "UNEMPLOYMENT_RATE",
+      "type": "quantitative",
+      "title": "Unemployment Rate (%)",
+      "scale": {"range": [30, 400]}
+    },
+    "tooltip": [
+      {"field": "LGA_NAME", "type": "nominal", "title": "Local Government Area"},
+      {"field": "REGION", "type": "nominal"},
+      {"field": "EXPENDITURE_PER_ADULT", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f"},
+      {"field": "EGM_DENSITY", "type": "quantitative", "title": "EGMs per 1,000 Adults"},
+      {"field": "SEIFA_SCORE", "type": "quantitative", "title": "SEIFA Score"},
+      {"field": "UNEMPLOYMENT_RATE", "type": "quantitative", "title": "Unemployment (%)"},
+      {"field": "YEAR", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+  }
+}
