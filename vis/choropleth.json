@@ -12,12 +12,12 @@
     "url": "Source_Data/VICLGAtopojson.json",
     "format": {
       "type": "topojson",
-      "feature": "LGA"
+      "feature": "VICLGAgeojson"
     }
   },
   "encoding": {
     "tooltip": [
-      {"field": "properties.LGA_NAME", "type": "nominal", "title": "Local Government Area"},
+      {"field": "properties.vic_lga__2", "type": "nominal", "title": "Local Government Area"},
       {"field": "EXPENDITURE_PER_ADULT_2024", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f"},
       {"field": "EGM_DENSITY_2024", "type": "quantitative", "title": "EGMs per 1,000 Adults"},
       {"field": "SEIFA_SCORE", "type": "quantitative", "title": "SEIFA (Disadvantage Index)"},
@@ -31,9 +31,13 @@
     {
       "transform": [
         {
-          "lookup": "properties.LGA_NAME",
+          "calculate": "lower(datum.properties.vic_lga__2)",
+          "as": "LGA_KEY"
+        },
+        {
+          "lookup": "LGA_KEY",
           "from": {
-            "data": {"url": "Data/choropleth.csv"},
+            "data": { "url": "Data/choropleth.csv" },
             "key": "LGA_NAME",
             "fields": [
               "EXPENDITURE_PER_ADULT_2024",
