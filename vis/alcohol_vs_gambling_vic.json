@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Alcohol-Attributed Harm vs Gambling Expenditure in Victoria (2011–2021)",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "Data/alcohol_vs_gambling_vic.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#2171b5",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "YEAR",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "TOTAL_EXPENDITURE_AUD",
+          "type": "quantitative",
+          "title": "Gambling Expenditure ($ billions)",
+          "axis": {
+            "titleColor": "#2171b5",
+            "format": "s"
+          }
+        },
+        "tooltip": [
+          {"field": "YEAR", "type": "ordinal"},
+          {"field": "TOTAL_EXPENDITURE_AUD", "type": "quantitative", "title": "Gambling Expenditure ($)", "format": ",.0f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#6baed6",
+        "strokeDash": [5, 3],
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "YEAR",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "ALCOHOL_HOSPITALISATIONS",
+          "type": "quantitative",
+          "title": "Alcohol-Related Hospitalisations",
+          "axis": {
+            "orient": "right",
+            "titleColor": "#6baed6"
+          }
+        },
+        "tooltip": [
+          {"field": "YEAR", "type": "ordinal"},
+          {"field": "ALCOHOL_HOSPITALISATIONS", "type": "quantitative", "title": "Alcohol Hospitalisations"}
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {"y": "independent"}
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+  }
+}
