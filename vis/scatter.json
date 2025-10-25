@@ -54,8 +54,9 @@
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
       "scale": {
-        "range": [300, 2000]},
+        "range": [300, 2000],
         "type": "sqrt"
+      }
     },
     "tooltip": [
       {"field": "LGA_NAME", "type": "nominal", "title": "Local Government Area"},
