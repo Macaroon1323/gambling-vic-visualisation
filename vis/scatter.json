@@ -39,25 +39,32 @@
       "field": "Density",
       "type": "quantitative",
       "title": "EGMs per 1,000 Adults",
-      "scale": {"zero": false}
+      "scale": { "domain": [0, 10], "zero": false }
     },
     "y": {
       "field": "Exp",
       "type": "quantitative",
       "title": "Expenditure per Adult ($)",
-      "scale": {"zero": false}
+      "scale": { "domain": [0, 1000], "zero": true }
     },
     "color": {
-      "field": "SEIFA",
-      "type": "quantitative",
-      "title": "SEIFA (Disadvantage Index)",
-      "scale": {"scheme": "blues"}
+    "field": "SEIFA_SCORE",
+    "type": "quantitative",
+    "title": "SEIFA (Disadvantage Index)",
+    "scale": {
+        "domain": [850, 1150],   // Example range; adjust to match your dataset min/max
+        "scheme": "blues"
+      }
     },
     "size": {
-      "field": "Unemp",
+      "field": "UNEMPLOYMENT_RATE",
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
-      "scale": {"range": [50, 1000], "type": "sqrt"}
+      "scale": {
+        "domain": [0, 0.12],   // Locks the % range — adjust to your dataset max
+        "range": [300, 2000],
+        "type": "sqrt"
+      }
     },
     "tooltip": [
       { "field": "LGA_NAME", "type": "nominal", "title": "Local Government Area" },
@@ -71,7 +78,7 @@
   "config": {
     "view": { "stroke": null },
     "axis": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
-    "legend": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
+    "legend": {"orient": "right", "labelFont": "Oxygen", "titleFont": "Oxygen" },
     "title": { "font": "Oxygen", "fontSize": 16, "fontWeight": 600 }
   }
 }
