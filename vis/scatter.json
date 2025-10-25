@@ -20,7 +20,9 @@
     }
   ],
   "transform": [
-  { "filter": "datum.YearNum == +YearSelect" }
+  { "calculate": "toNumber(datum.YEAR)", "as": "YearNum" },
+  { "filter": "datum.YearNum == YearSelect" },
+  { "filter": "isValid(datum.EXPENDITURE_PER_ADULT) && isValid(datum.EGM_DENSITY)" }
 ],
   "mark": {
     "type": "circle",
