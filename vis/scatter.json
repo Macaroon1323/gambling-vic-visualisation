@@ -20,13 +20,7 @@
     }
   ],
   "transform": [
-  { "calculate": "toNumber(trim(datum.YEAR))", "as": "YearNum" },
-  { "calculate": "toNumber(trim(datum.EXPENDITURE_PER_ADULT))", "as": "Exp" },
-  { "calculate": "toNumber(trim(datum.EGM_DENSITY))", "as": "Density" },
-  { "calculate": "toNumber(trim(datum.SEIFA_SCORE))", "as": "SEIFA" },
-  { "calculate": "toNumber(trim(datum.UNEMPLOYMENT_RATE))", "as": "Unemp" },
-  { "filter": "datum.YearNum == YearSelect" }
-  {"filter": "datum.Exp > 0 && datum.Density > 0"}
+  { "filter": "toNumber(datum.YEAR) == YearSelect" }
 ],
   "mark": {
     "type": "circle",
