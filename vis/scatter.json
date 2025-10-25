@@ -30,25 +30,25 @@
   },
   "encoding": {
     "x": {
-      "field": "Density",
+      "field": "EGM_DENSITY",
       "type": "quantitative",
       "title": "EGMs per 1,000 Adults",
       "scale": {"zero": false}
     },
     "y": {
-      "field": "Exp",
+      "field": "EXPENDITURE_PER_ADULT",
       "type": "quantitative",
       "title": "Expenditure per Adult ($)",
       "scale": {"zero": false}
     },
     "color": {
-      "field": "SEIFA",
+      "field": "SEIFA_SCORE",
       "type": "quantitative",
       "title": "SEIFA (Disadvantage Index)",
       "scale": {"scheme": "blues"}
     },
     "size": {
-      "field": "Unemp",
+      "field": "UNEMPLOYMENT_RATE",
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
       "scale": {"range": [300, 2000], "type": "sqrt"}
