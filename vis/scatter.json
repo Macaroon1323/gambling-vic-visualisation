@@ -66,7 +66,6 @@
       { "field": "Density", "type": "quantitative", "title": "EGMs per 1,000 Adults" },
       { "field": "SEIFA", "type": "quantitative", "title": "SEIFA Score" },
       { "field": "Unemp", "type": "quantitative", "title": "Unemployment (%)", "format": ".1%" },
-      { "field": "YearNum", "type": "quantitative", "title": "Year" }
     ]
   },
   "config": {
