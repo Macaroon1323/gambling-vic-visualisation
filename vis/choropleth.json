@@ -1,7 +1,9 @@
+
+{
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Electronic Gaming Machine Net Expenditure — Victoria, 2024",
   "width": "container",
-  "height": 600,
+  "height": 500,
   "projection": {
     "type": "conicEqualArea",
     "parallels": [-36, -38],
@@ -11,14 +13,24 @@
     "url": "Source_Data/VICLGAtopojson.json",
     "format": { "type": "topojson", "feature": "VICLGAgeojson" }
   },
+  "encoding": {
+    "tooltip": [
+      { "field": "properties.vic_lga__3", "type": "nominal", "title": "Local Government Area" },
+      { "field": "NET_EXPENDITURE_2024", "type": "quantitative", "title": "Net Expenditure ($)", "format": ",.0f" },
+      { "field": "EXPENDITURE_PER_ADULT_2024", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f" },
+      { "field": "EGM_DENSITY_2024", "type": "quantitative", "title": "EGMs per 1,000 Adults" },
+      { "field": "SEIFA_SCORE", "type": "quantitative", "title": "SEIFA (Disadvantage Index)" },
+      { "field": "POPULATION_2024", "type": "quantitative", "title": "Adult Population (2024)", "format": "," }
+    ]
+  },
   "layer": [
     {
-      "mark": { "type": "geoshape", "fill": "#f0f0f0", "stroke": "white" }
+      "mark": { "type": "geoshape", "fill": "lightgrey", "stroke": "white" }
     },
     {
       "transform": [
         {
-          "calculate": "datum.properties['vic_lga__3']",
+          "calculate": "datum['properties.vic_lga__3']",
           "as": "LGA_KEY"
         },
         {
@@ -26,7 +38,6 @@
           "from": {
             "data": {
               "url": "Data/choropleth.csv",
-              "format": { "type": "csv" },
               "transform": [
                 { "calculate": "upper(datum.LGA_NAME)", "as": "LGA_NAME" }
               ]
@@ -42,53 +53,14 @@
           }
         }
       ],
-      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.5 },
+      "mark": "geoshape",
       "encoding": {
         "color": {
           "field": "NET_EXPENDITURE_2024",
           "type": "quantitative",
           "title": "Net Expenditure ($)",
-          "scale": {
-            "scheme": "blues",
-            "domain": [0, 150000000]
-          },
-          "legend": { "format": "~s" }
-        },
-        "tooltip": [
-          {
-            "field": "properties.vic_lga__3",
-            "type": "nominal",
-            "title": "Local Government Area"
-          },
-          {
-            "field": "NET_EXPENDITURE_2024",
-            "type": "quantitative",
-            "title": "Net Expenditure ($)",
-            "format": ",.0f"
-          },
-          {
-            "field": "EXPENDITURE_PER_ADULT_2024",
-            "type": "quantitative",
-            "title": "Expenditure per Adult ($)",
-            "format": ",.0f"
-          },
-          {
-            "field": "EGM_DENSITY_2024",
-            "type": "quantitative",
-            "title": "EGMs per 1,000 Adults"
-          },
-          {
-            "field": "SEIFA_SCORE",
-            "type": "quantitative",
-            "title": "SEIFA (Disadvantage Index)"
-          },
-          {
-            "field": "POPULATION_2024",
-            "type": "quantitative",
-            "title": "Adult Population (2024)",
-            "format": ","
-          }
-        ]
+          "scale": { "scheme": "blues" }
+        }
       }
     }
   ],
@@ -97,7 +69,6 @@
     "axis": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
     "legend": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
     "header": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
-    "title": { "font": "Oxygen", "fontSize": 16, "fontWeight": 600 },
-    "style": { "background": "white" }
+    "title": { "font": "Oxygen", "fontSize": 16, "fontWeight": 600 }
   }
 }
