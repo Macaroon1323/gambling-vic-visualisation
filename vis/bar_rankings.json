@@ -7,14 +7,19 @@
     "url": "Data/bar_rankings.csv"
   },
   "transform": [
-    {
-      "window": [{"op": "rank", "as": "rank"}],
-      "sort": [{"field": "PLAYER_LOSS_SEP_2025", "order": "descending"}]
-    },
-    {
-      "filter": "datum.rank <= 10"
-    }
-  ],
+  {
+    "filter": "datum.Month == 'Sep-25'"
+  },
+  {
+    "window": [
+      {"op": "rank", "as": "rank"}
+    ],
+    "sort": [{"field": "Player Loss", "order": "descending"}]
+  },
+  {
+    "filter": "datum.rank <= 10"
+  }
+],
   "mark": {
     "type": "bar",
     "cornerRadiusTopLeft": 4,
