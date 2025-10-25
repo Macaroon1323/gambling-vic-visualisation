@@ -65,7 +65,7 @@
       { "field": "Exp", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f" },
       { "field": "Density", "type": "quantitative", "title": "EGMs per 1,000 Adults" },
       { "field": "SEIFA", "type": "quantitative", "title": "SEIFA Score" },
-      { "field": "Unemp", "type": "quantitative", "title": "Unemployment (%)", "format": ".1%" },
+      { "field": "Unemp", "type": "quantitative", "title": "Unemployment (%)", "format": ".1%" }
     ]
   },
   "config": {
