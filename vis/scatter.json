@@ -20,14 +20,13 @@
     }
   ],
   "transform": [
-  {
-    "calculate": "toNumber(trim(datum.YEAR))",
-    "as": "YearNum"
-  },
-  {
-    "filter": "datum.YearNum == YearSelect"
-  }
-]
+  { "calculate": "toNumber(trim(datum.YEAR))", "as": "YearNum" },
+  { "calculate": "toNumber(trim(datum.EXPENDITURE_PER_ADULT))", "as": "Exp" },
+  { "calculate": "toNumber(trim(datum.EGM_DENSITY))", "as": "Density" },
+  { "calculate": "toNumber(trim(datum.SEIFA_SCORE))", "as": "SEIFA" },
+  { "calculate": "toNumber(trim(datum.UNEMPLOYMENT_RATE))", "as": "Unemp" },
+  { "filter": "datum.YearNum == YearSelect" }
+],
   "mark": {
     "type": "circle",
     "opacity": 0.8,
@@ -36,28 +35,28 @@
   },
   "encoding": {
     "x": {
-      "field": "EGM_DENSITY",
+      "field": "Density",
       "type": "quantitative",
       "title": "EGMs per 1,000 Adults",
-      "scale": { "zero": false }
+      "scale": {"zero": false}
     },
     "y": {
-      "field": "EXPENDITURE_PER_ADULT",
+      "field": "Exp",
       "type": "quantitative",
       "title": "Expenditure per Adult ($)",
-      "scale": { "zero": false }
+      "scale": {"zero": false}
     },
     "color": {
-      "field": "SEIFA_SCORE",
+      "field": "SEIFA",
       "type": "quantitative",
       "title": "SEIFA (Disadvantage Index)",
-      "scale": { "scheme": "blues" }
+      "scale": {"scheme": "blues"}
     },
     "size": {
-      "field": "UNEMPLOYMENT_RATE",
+      "field": "Unemp",
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
-      "scale": { "range": [300, 2000], "type": "sqrt" }
+      "scale": {"range": [300, 2000], "type": "sqrt"}
     },
     "tooltip": [
       { "field": "LGA_NAME", "type": "nominal", "title": "Local Government Area" },
