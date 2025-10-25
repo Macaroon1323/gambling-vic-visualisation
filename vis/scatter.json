@@ -20,8 +20,14 @@
     }
   ],
   "transform": [
-    { "filter": "toNumber(datum.YEAR) == YearSelect" }
-  ],
+  {
+    "calculate": "toNumber(trim(datum.YEAR))",
+    "as": "YearNum"
+  },
+  {
+    "filter": "datum.YearNum == YearSelect"
+  }
+]
   "mark": {
     "type": "circle",
     "opacity": 0.8,
