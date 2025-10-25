@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Electronic Gaming Machine Expenditure per Adult — Victoria, 2024",
+  "title": "Electronic Gaming Machine Net Expenditure — Victoria, 2024",
   "width": "container",
   "height": 500,
   "projection": {
@@ -10,36 +10,31 @@
   },
   "data": {
     "url": "Source_Data/VICLGAtopojson.json",
-    "format": {
-      "type": "topojson",
-      "feature": "VICLGAgeojson"
-    }
+    "format": { "type": "topojson", "feature": "VICLGAgeojson" }
   },
   "encoding": {
     "tooltip": [
-      {"field": "properties.vic_lga__2", "type": "nominal", "title": "Local Government Area"},
-      {"field": "EXPENDITURE_PER_ADULT_2024", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f"},
-      {"field": "EGM_DENSITY_2024", "type": "quantitative", "title": "EGMs per 1,000 Adults"},
-      {"field": "SEIFA_SCORE", "type": "quantitative", "title": "SEIFA (Disadvantage Index)"},
-      {"field": "POPULATION_2024", "type": "quantitative", "title": "Adult Population (2024)", "format": ","}
+      { "field": "properties.vic_lga__2", "type": "nominal", "title": "Local Government Area" },
+      { "field": "NET_EXPENDITURE_2024", "type": "quantitative", "title": "Net Expenditure ($)", "format": ",.0f" },
+      { "field": "EXPENDITURE_PER_ADULT_2024", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f" },
+      { "field": "EGM_DENSITY_2024", "type": "quantitative", "title": "EGMs per 1,000 Adults" },
+      { "field": "SEIFA_SCORE", "type": "quantitative", "title": "SEIFA (Disadvantage Index)" },
+      { "field": "POPULATION_2024", "type": "quantitative", "title": "Adult Population (2024)", "format": "," }
     ]
   },
   "layer": [
     {
-      "mark": {"type": "geoshape", "fill": "lightgrey", "stroke": "white"}
+      "mark": { "type": "geoshape", "fill": "lightgrey", "stroke": "white" }
     },
     {
       "transform": [
         {
-          "calculate": "lower(datum.properties.vic_lga__2)",
-          "as": "LGA_KEY"
-        },
-        {
-          "lookup": "LGA_KEY",
+          "lookup": "properties.vic_lga__2",
           "from": {
             "data": { "url": "Data/choropleth.csv" },
             "key": "LGA_NAME",
             "fields": [
+              "NET_EXPENDITURE_2024",
               "EXPENDITURE_PER_ADULT_2024",
               "EGM_DENSITY_2024",
               "SEIFA_SCORE",
@@ -51,19 +46,19 @@
       "mark": "geoshape",
       "encoding": {
         "color": {
-          "field": "EXPENDITURE_PER_ADULT_2024",
+          "field": "NET_EXPENDITURE_2024",
           "type": "quantitative",
-          "title": "Expenditure per Adult ($)",
-          "scale": {"scheme": "blues"}
+          "title": "Net Expenditure ($)",
+          "scale": { "scheme": "blues" }
         }
       }
     }
   ],
   "config": {
-    "view": {"stroke": null},
-    "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
-    "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
-    "header": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
-    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+    "view": { "stroke": null },
+    "axis": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
+    "legend": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
+    "header": { "labelFont": "Oxygen", "titleFont": "Oxygen" },
+    "title": { "font": "Oxygen", "fontSize": 16, "fontWeight": 600 }
   }
 }
