@@ -30,7 +30,7 @@
     {
       "transform": [
         {
-          "lookup": "properties.vic_lga__2",
+          "lookup": "properties.vic_lga__3",
           "from": {
             "data": { "url": "Data/choropleth.csv" },
             "key": "LGA_NAME",
