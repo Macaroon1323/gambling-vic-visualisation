@@ -4,7 +4,7 @@
   "height": 400,
   "title": "EGM Density vs Expenditure per Adult by Victorian LGA (2021–2024)",
   "data": {
-    "url": "Data/scatter.csv"
+    "url": "../Data/bar_rankings.csv"
   },
   "params": [
     {
