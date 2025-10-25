@@ -29,9 +29,18 @@
     {
       "transform": [
         {
-          "lookup": "properties.vic_lga__3",
+          "calculate": "upper(datum['properties.vic_lga__2'])",
+          "as": "LGA_KEY"
+        },
+        {
+          "lookup": "LGA_KEY",
           "from": {
-            "data": { "url": "Data/choropleth.csv" },
+            "data": {
+              "url": "Data/choropleth.csv",
+              "transform": [
+                { "calculate": "upper(datum.LGA_NAME)", "as": "LGA_NAME" }
+              ]
+            },
             "key": "LGA_NAME",
             "fields": [
               "NET_EXPENDITURE_2024",
