@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "title": "Top 10 Victorian LGAs by Player Loss — September 2025",
+  "data": {
+    "url": "Data/bar_rankings.csv"
+  },
+  "transform": [
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "PLAYER_LOSS_SEP_2025", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 10"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 4,
+    "cornerRadiusTopRight": 4
+  },
+  "encoding": {
+    "y": {
+      "field": "LGA_NAME",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Local Government Area",
+      "axis": {"labelFontSize": 11}
+    },
+    "x": {
+      "field": "PLAYER_LOSS_SEP_2025",
+      "type": "quantitative",
+      "title": "Player Loss ($)",
+      "axis": {"titleFontSize": 12, "labelFontSize": 10},
+      "format": ",.0f"
+    },
+    "color": {
+      "field": "REGION",
+      "type": "nominal",
+      "title": "Region",
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {"field": "LGA_NAME", "type": "nominal", "title": "Local Government Area"},
+      {"field": "REGION", "type": "nominal"},
+      {"field": "PLAYER_LOSS_SEP_2025", "type": "quantitative", "title": "Player Loss ($)", "format": ",.0f"},
+      {"field": "NUM_EGMS", "type": "quantitative", "title": "Number of EGMs"},
+      {"field": "NUM_VENUES", "type": "quantitative", "title": "Number of Venues"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
+    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+  }
+}
