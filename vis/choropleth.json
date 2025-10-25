@@ -31,8 +31,12 @@
     {
       "transform": [
         {
-          "calculate": "lower(datum.properties.vic_lga__2)",
+          "calculate": "replace(replace(replace(replace(lower(datum['properties.vic_lga__3']), 'city', ''), 'shire', ''), 'rural', ''), 'city of ', '')",
           "as": "LGA_KEY"
+        },
+        {
+          "calculate": "lower(datum.LGA_NAME)",
+          "as": "LGA_NAME"
         },
         {
           "lookup": "LGA_KEY",
