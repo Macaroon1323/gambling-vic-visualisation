@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <title>Gambling Trends Across Victoria</title>
+  <!-- Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Custom Styling -->
+  <style>
+    * {
+      font-family: 'Oxygen', sans-serif;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-weight: 900;
+    }
+
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .page {
+      width: 800px;
+      background-color: white;
+      margin: auto;
+      padding: 70px;
+      padding-top: 35px;
+    }
+
+    .vis-container {
+      width: 100%;
+    }
+
+    .description h2,
+    h1 {
+      margin-top: 10px;
+    }
+
+    .description-right {
+      padding-left: 10px;
+    }
+
+    .description-left {
+      padding-right: 10px;
+    }
+
+    .pure-g {
+      margin-bottom: 25px;
+    }
+
+    .small-font {
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- Title -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Gambling in Victoria: Regional Trends and Impacts (2011–2025)</h1>
+        <p>This visualisation explores electronic gaming machine (EGM) gambling trends across Victoria, examining local
+          government area (LGA) expenditure, density, and social impact. Data is sourced from the <i>Victorian Gambling
+          and Casino Control Commission (VGCCC)</i> and associated public health datasets. Each chart contributes to
+          understanding the scale and distribution of gambling behaviour across regions and over time.</p>
+      </div>
+    </div>
+
+    <!-- Choropleth Map -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="map" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The map illustrates total player losses per adult across Victorian LGAs in 2024. Regions with higher spending
+          are concentrated around metropolitan and inner-suburban areas, with notable peaks in municipalities such as
+          Brimbank, Casey, and Greater Dandenong. Regional areas generally record lower expenditure per capita, though
+          some exceptions exist where venue density is higher.</p>
+      </div>
+    </div>
+
+    <!-- Scatter Plot -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="scatter" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>The scatter plot allows comparison between gambling expenditure and machine density per 1,000 adults across
+          LGAs. Each point represents a local area, sized by venue count. The interactive year slider highlights changes
+          in gambling distribution from 2011 to 2021, showing consistent high density in urban areas but gradual
+          increases in some regional towns.</p>
+      </div>
+    </div>
+
+    <!-- Line Trend -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Long-Term Expenditure Trends</h2>
+          <p>Gambling expenditure across Victoria has fluctuated over the last decade. Despite brief declines during
+            pandemic-related closures, the overall trend has risen steadily from 2011 to 2021. This sustained growth
+            highlights how EGM gambling remains deeply embedded in local entertainment economies.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="line" class="vis-container"></div>
+      </div>
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="bar" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Top 10 LGAs by Player Loss (Sept 2025)</h2>
+          <p>Recent figures show that gambling losses remain heavily concentrated within Melbourne’s outer suburban
+            regions. LGAs such as Casey, Hume, Brimbank, and Greater Dandenong consistently rank among the state’s
+            highest, driven by large venue numbers and population size. This chart presents the ten LGAs with the
+            greatest player losses recorded in September 2025.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alcohol vs Gambling -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Alcohol and Gambling Correlation</h2>
+          <p>When gambling losses are compared with alcohol-related hospitalisations, similar upward trends emerge. Both
+            metrics suggest an increasing burden of addictive behaviours over the last decade. The relationship between
+            these two indicators may reflect broader social and economic pressures influencing risk-taking behaviour in
+            Victoria.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="alcohol" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation was created by <b>[Your Name]</b> for the Data Visualisation 2 Assignment at Monash
+          University. Data is sourced from the <a href="https://vgccc.vic.gov.au/">Victorian Gambling and Casino Control
+            Commission</a> and public datasets from <a href="https://data.gov.au/">Data.gov.au</a>.</p>
+      </div>
+    </div>
+
+  </div> <!-- End Page -->
+
+  <!-- Vega Embed Scripts -->
+  <script type="text/javascript">
+    vegaEmbed('#map', 'vis/choropleth.json', { "actions": false }).catch(console.error);
+    vegaEmbed('#scatter', 'vis/interactive_scatter.json', { "actions": false }).catch(console.error);
+    vegaEmbed('#line', 'vis/line_trend.json', { "actions": false }).catch(console.error);
+    vegaEmbed('#bar', 'vis/bar_rankings.json', { "actions": false }).catch(console.error);
+    vegaEmbed('#alcohol', 'vis/alcohol_vs_gambling_vic.json', { "actions": false }).catch(console.error);
+  </script>
+</body>
+
+</html>
