@@ -48,11 +48,11 @@
       "scale": { "domain": [0, 1000], "zero": true }
     },
     "color": {
-    "field": "SEIFA_SCORE",
-    "type": "quantitative",
-    "title": "SEIFA (Disadvantage Index)",
-    "scale": {
-        "domain": [850, 1150],   // Example range; adjust to match your dataset min/max
+      "field": "SEIFA_SCORE",
+      "type": "quantitative",
+      "title": "SEIFA (Disadvantage Index)",
+      "scale": {
+        "domain": [850, 1150],  
         "scheme": "blues"
       }
     },
@@ -61,7 +61,7 @@
       "type": "quantitative",
       "title": "Unemployment Rate (%)",
       "scale": {
-        "domain": [0, 0.12],   // Locks the % range — adjust to your dataset max
+        "domain": [0, 0.12],  
         "range": [300, 2000],
         "type": "sqrt"
       }
