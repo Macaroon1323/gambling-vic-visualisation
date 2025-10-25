@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 400,
-  "title": "EGM Density vs Expenditure per Adult by Victorian LGA (2015–2024)",
+  "title": "EGM Density vs Expenditure per Adult by Victorian LGA (2021–2024)",
   "data": {
     "url": "Data/scatter.csv"
   },
@@ -12,7 +12,7 @@
       "value": 2024,
       "bind": {
         "input": "range",
-        "min": 2015,
+        "min": 2021,
         "max": 2024,
         "step": 1,
         "name": "Select Year: "
