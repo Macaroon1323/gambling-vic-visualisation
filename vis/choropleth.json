@@ -14,7 +14,7 @@
   },
   "encoding": {
     "tooltip": [
-      { "field": "properties.vic_lga__2", "type": "nominal", "title": "Local Government Area" },
+      { "field": "properties.vic_lga__3", "type": "nominal", "title": "Local Government Area" },
       { "field": "NET_EXPENDITURE_2024", "type": "quantitative", "title": "Net Expenditure ($)", "format": ",.0f" },
       { "field": "EXPENDITURE_PER_ADULT_2024", "type": "quantitative", "title": "Expenditure per Adult ($)", "format": ",.0f" },
       { "field": "EGM_DENSITY_2024", "type": "quantitative", "title": "EGMs per 1,000 Adults" },
@@ -29,7 +29,7 @@
     {
       "transform": [
         {
-          "lookup": "properties.vic_lga__2",
+          "lookup": "properties.vic_lga__3",
           "from": {
             "data": { "url": "Data/choropleth.csv" },
             "key": "LGA_NAME",
