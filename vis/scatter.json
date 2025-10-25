@@ -20,7 +20,7 @@
     }
   ],
   "transform": [
-    { "filter": "datum.YEAR == YearSelect" }
+    { "filter": "toNumber(datum.YEAR) == YearSelect" }
   ],
   "mark": {
     "type": "circle",
