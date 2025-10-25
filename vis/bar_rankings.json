@@ -1,63 +1,45 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
-  "height": 400,
   "title": "Top 10 Victorian LGAs by Player Loss — September 2025",
+  "width": 600,
+  "height": 400,
   "data": {
-    "url": "Data/bar_rankings.csv"
+    "url": "https://raw.githubusercontent.com/<Macaroon1323>/<gambling-vic-visualisation>/main/Data/bar_rankings.csv"
   },
-  "transform": [
-  {
-    "filter": "datum.Month == 'Sep-25'"
-  },
-  {
-    "window": [
-      {"op": "rank", "as": "rank"}
-    ],
-    "sort": [{"field": "Player Loss", "order": "descending"}]
-  },
-  {
-    "filter": "datum.rank <= 10"
-  }
-],
   "mark": {
     "type": "bar",
-    "cornerRadiusTopLeft": 4,
-    "cornerRadiusTopRight": 4
+    "cornerRadiusEnd": 3,
+    "tooltip": true
   },
   "encoding": {
     "y": {
       "field": "LGA_NAME",
       "type": "nominal",
-      "sort": "-x",
       "title": "Local Government Area",
-      "axis": {"labelFontSize": 11}
+      "sort": "-x"
     },
     "x": {
-      "field": "PLAYER_LOSS_SEP_2025",
+      "field": "PLAYER_LOSS_SEP_25",
       "type": "quantitative",
-      "title": "Player Loss ($)",
-      "axis": {"titleFontSize": 12, "labelFontSize": 10},
-      "format": ",.0f"
+      "title": "Player Loss ($)"
     },
     "color": {
       "field": "REGION",
       "type": "nominal",
-      "title": "Region",
-      "scale": {"scheme": "blues"}
+      "title": "Region"
     },
     "tooltip": [
       {"field": "LGA_NAME", "type": "nominal", "title": "Local Government Area"},
-      {"field": "REGION", "type": "nominal"},
-      {"field": "PLAYER_LOSS_SEP_2025", "type": "quantitative", "title": "Player Loss ($)", "format": ",.0f"},
+      {"field": "REGION", "type": "nominal", "title": "Region"},
+      {"field": "PLAYER_LOSS_SEP_25", "type": "quantitative", "title": "Player Loss ($)", "format": ","},
       {"field": "NUM_EGMS", "type": "quantitative", "title": "Number of EGMs"},
       {"field": "NUM_VENUES", "type": "quantitative", "title": "Number of Venues"}
     ]
   },
   "config": {
-    "view": {"stroke": null},
     "axis": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
     "legend": {"labelFont": "Oxygen", "titleFont": "Oxygen"},
-    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600}
+    "title": {"font": "Oxygen", "fontSize": 16, "fontWeight": 600},
+    "view": {"stroke": null}
   }
 }
