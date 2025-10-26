@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Top 10 Victorian LGAs by Player Loss — September 2025",
-  "width": 150,
-  "height": 200,
+  "width": 600,
+  "height": 400,
   "data": {
     "url": "Data/bar_rankings.csv"
   },
