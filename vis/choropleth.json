@@ -47,10 +47,14 @@
       "mark": "geoshape",
       "encoding": {
         "color": {
-          "field": "NET_EXPENDITURE_2024",
-          "type": "quantitative",
-          "title": "Net Expenditure ($)",
-          "scale": { "scheme": "blues" }
+          "condition": {
+            "test": "datum.NET_EXPENDITURE_2024 > 0",
+            "field": "NET_EXPENDITURE_2024",
+            "type": "quantitative",
+            "scale": { "scheme": "blues" }
+          },
+          "value": "lightgrey",
+          "title": "Net Expenditure ($)"
         }
       }
     }
